@@ -1,0 +1,27 @@
+{
+  "name": "range-specifier-parser",
+  "version": "0.1.0",
+  "description": "Range Specifier Parser",
+  "main": "index.js",
+  "homepage": "https://github.com/seegno/range-specifier-parser",
+  "devDependencies": {
+    "co-mocha": "1.1.0",
+    "mocha": "2.1.0",
+    "should": "4.6.1"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha test/*_test.js"
+  },
+  "author": "Seegno",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:seegno/range-specifier-parser"
+  },
+  "bugs": {
+    "url": "https://github.com/seegno/range-specifier-parser/issues"
+  },
+  "directories": {
+    "test": "test"
+  }
+}
