@@ -9,7 +9,7 @@ var parser = require('../');
  * Test `rangeSpecifierParser`.
  */
 
-describe.only('rangeSpecifierParser', function() {
+describe('rangeSpecifierParser', function() {
   it('should return -2 range is missing `range-unit`', function(){
     parser('=0-5').should.equal(-2);
   });
