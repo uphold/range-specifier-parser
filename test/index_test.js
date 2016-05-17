@@ -30,10 +30,18 @@ describe('RangeSpecifierParser', () => {
     parser('bytes=5-0').should.equal(-1);
   });
 
-  it('should parse range', () => {
+  it('should parse a numeric range', () => {
     const range = parser('bytes=0-499');
 
     range.last.should.equal(499);
+    range.first.should.equal(0);
+    range.unit.should.equal('bytes');
+  });
+
+  it('should parse a range with asterisk', () => {
+    const range = parser('bytes=0-*');
+
+    range.last.should.equal('*');
     range.first.should.equal(0);
     range.unit.should.equal('bytes');
   });

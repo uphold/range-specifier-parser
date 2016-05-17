@@ -5,7 +5,7 @@
 
 export default range => {
   // Test `Range` format.
-  if (range.match(/^\w+=\d+-\d+$/) === null) {
+  if (range.match(/^\w+=\d+-(?:\*|\d+)$/) === null) {
     return -2;
   }
 
@@ -14,8 +14,8 @@ export default range => {
 
   // Pick `first-byte-pos` and `last-byte-pos` from `range-set`.
   const first = parseInt(rangeSet[0], 10);
-  const last = parseInt(rangeSet[1], 10);
-  const unit = range.replace(range.match(/\=\d+-\d+$/), '');
+  const last = parseInt(rangeSet[1], 10) || rangeSet[1];
+  const unit = range.replace(range.match(/\=.+$/), '');
 
   // `first-byte-pos` must not be greater than `last-byte-pos`.
   if (first > last) {
