@@ -39,3 +39,7 @@ npm test
 ## Release
 
 `npm version [<newversion> | major | minor | patch] -m "Release %s"`
+
+## License
+
+MIT
