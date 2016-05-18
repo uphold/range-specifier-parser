@@ -1,5 +1,7 @@
 # Range Specifier Parser
 
+[![npm version][npm-image]][npm-url] [![build status][travis-image]][travis-url]
+
 A parser to handle [Range Pagination Headers](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
 _Inspired by [range-parser](https://github.com/jshttp/range-parser)_.
@@ -43,3 +45,8 @@ npm test
 ## License
 
 MIT
+
+[npm-image]: https://img.shields.io/npm/v/range-specifier-parser.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/range-specifier-parser
+[travis-image]: https://img.shields.io/travis/seegno/range-specifier-parser.svg?style=flat-square
+[travis-url]: https://travis-ci.org/seegno/range-specifier-parser
