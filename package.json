@@ -1,6 +1,6 @@
 {
   "name": "range-specifier-parser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Range Specifier Parser",
   "homepage": "https://github.com/seegno/range-specifier-parser",
   "license": "MIT",
