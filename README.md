@@ -35,3 +35,7 @@ The parser outputs an object with the following properties according to the [Byt
 ```sh
 npm test
 ```
+
+## Release
+
+`npm version [<newversion> | major | minor | patch] -m "Release %s"`
