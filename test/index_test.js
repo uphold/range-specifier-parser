@@ -30,6 +30,14 @@ describe('RangeSpecifierParser', () => {
     parser('bytes=5-0').should.equal(-1);
   });
 
+  it('should accept `0-0` as a valid range', () => {
+    const range = parser('bytes=0-0');
+
+    range.last.should.equal(0);
+    range.first.should.equal(0);
+    range.unit.should.equal('bytes');
+  });
+
   it('should parse a numeric range', () => {
     const range = parser('bytes=0-499');
 
