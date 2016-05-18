@@ -2,26 +2,41 @@
   "name": "range-specifier-parser",
   "version": "0.1.0",
   "description": "Range Specifier Parser",
-  "main": "index.js",
   "homepage": "https://github.com/seegno/range-specifier-parser",
-  "devDependencies": {
-    "co-mocha": "1.1.0",
-    "mocha": "2.1.0",
-    "should": "4.6.1"
-  },
-  "scripts": {
-    "test": "NODE_ENV=test ./node_modules/.bin/mocha test/*_test.js"
-  },
-  "author": "Seegno",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:seegno/range-specifier-parser"
+  "author": "Seegno",
+  "main": "dist/src",
+  "repository": "git@github.com:seegno/range-specifier-parser",
+  "scripts": {
+    "changelog": "github_changelog_generator --no-issues --header-label='# Changelog' --future-release=v$npm_config_future_release && sed -i '' -e :a -e '$d;N;2,4ba' -e 'P;D' CHANGELOG.md",
+    "lint": "eslint src test && jscs src test",
+    "prepublish": "npm run transpile",
+    "test": "NODE_ENV=test mocha $npm_package_options_mocha",
+    "transpile": "rm -rf dist/* && babel src --out-dir dist/src",
+    "version": "npm run changelog --future-release=$npm_package_version && git add -A CHANGELOG.md"
   },
-  "bugs": {
-    "url": "https://github.com/seegno/range-specifier-parser/issues"
+  "devDependencies": {
+    "babel-cli": "^6.8.0",
+    "babel-eslint": "^6.0.4",
+    "babel-preset-es2015-node4": "^2.1.0",
+    "babel-register": "^6.9.0",
+    "eslint": "^2.10.2",
+    "eslint-config-seegno": "^4.0.0",
+    "eslint-plugin-babel": "^3.2.0",
+    "eslint-plugin-sort-class-members": "^1.0.1",
+    "jscs": "^2.11.0",
+    "jscs-config-seegno": "^2.0.0",
+    "mocha": "^2.4.5",
+    "precommit-hook": "^3.0.0",
+    "should": "^8.3.1"
   },
-  "directories": {
-    "test": "test"
-  }
+  "engines": {
+    "node": ">= 4.0.0"
+  },
+  "options": {
+    "mocha": "--compilers js:babel-register --recursive --require should"
+  },
+  "pre-commit": [
+    "lint"
+  ]
 }

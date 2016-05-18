@@ -16,7 +16,7 @@ Choose your preferred method:
 The parser receives a `byte-ranges-specifier` as its only argument.
 
 ```js
-var parser = require('range-specifier-parser');
+import parser from 'range-specifier-parser';
 
 parser('bytes=0-499');
 
