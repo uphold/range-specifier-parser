@@ -1,9 +1,10 @@
+'use strict';
 
 /**
  * Export `parser`.
  */
 
-export default range => {
+module.exports = range => {
   // Test `Range` format.
   if (range.match(/^\w+=\d+-(?:\*|\d+)$/) === null) {
     return -2;
