@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -11,46 +10,46 @@ const parser = require('../src');
 
 describe('RangeSpecifierParser', () => {
   it('should return -2 range is missing `range-unit`', () => {
-    parser('=0-5').should.equal(-2);
+    expect(parser('=0-5')).toEqual(-2);
   });
 
   it('should return -2 range is missing `=`', () => {
-    parser('bytes0-5').should.equal(-2);
+    expect(parser('bytes0-5')).toEqual(-2);
   });
 
   it('should return -2 `byte-range-spec` is not totally defined', () => {
-    parser('bytes=-5').should.equal(-2);
+    expect(parser('bytes=-5')).toEqual(-2);
   });
 
   it('should return -2 `byte-range-spec` is not a numeric interval', () => {
-    parser('bytes=start-end').should.equal(-2);
+    expect(parser('bytes=start-end')).toEqual(-2);
   });
 
   it('should return -1 for invalid `byte-range-spec`', () => {
-    parser('bytes=5-0').should.equal(-1);
+    expect(parser('bytes=5-0')).toEqual(-1);
   });
 
   it('should accept `0-0` as a valid range', () => {
-    const range = parser('bytes=0-0');
-
-    range.last.should.equal(0);
-    range.first.should.equal(0);
-    range.unit.should.equal('bytes');
+    expect(parser('bytes=0-0')).toMatchObject({
+      first: 0,
+      last: 0,
+      unit: 'bytes'
+    });
   });
 
   it('should parse a numeric range', () => {
-    const range = parser('bytes=0-499');
-
-    range.last.should.equal(499);
-    range.first.should.equal(0);
-    range.unit.should.equal('bytes');
+    expect(parser('bytes=0-499')).toMatchObject({
+      first: 0,
+      last: 499,
+      unit: 'bytes'
+    });
   });
 
   it('should parse a range with asterisk', () => {
-    const range = parser('bytes=0-*');
-
-    range.last.should.equal('*');
-    range.first.should.equal(0);
-    range.unit.should.equal('bytes');
+    expect(parser('bytes=0-*')).toMatchObject({
+      first: 0,
+      last: '*',
+      unit: 'bytes'
+    });
   });
 });

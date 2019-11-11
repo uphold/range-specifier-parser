@@ -2,36 +2,26 @@
   "name": "range-specifier-parser",
   "version": "1.0.2",
   "description": "Range Specifier Parser",
-  "homepage": "https://github.com/seegno/range-specifier-parser",
+  "homepage": "https://github.com/uphold/range-specifier-parser",
+  "repository": "git@github.com:uphold/range-specifier-parser",
   "license": "MIT",
-  "author": "Seegno",
+  "author": "Uphold",
   "main": "src/index.js",
-  "repository": "git@github.com:seegno/range-specifier-parser",
   "scripts": {
-    "changelog": "github_changelog_generator --no-issues --header-label='# Changelog' --future-release=v$npm_config_future_release && sed -i '' -e :a -e '$d;N;2,4ba' -e 'P;D' CHANGELOG.md",
-    "lint": "eslint src test && jscs src test",
-    "test": "NODE_ENV=test mocha $npm_package_options_mocha",
-    "version": "npm run changelog --future-release=$npm_package_version && git add -A CHANGELOG.md"
-  },
-  "devDependencies": {
-    "babel-eslint": "^6.0.4",
-    "eslint": "^2.10.2",
-    "eslint-config-seegno": "^4.0.0",
-    "eslint-plugin-babel": "^3.2.0",
-    "eslint-plugin-sort-class-members": "^1.0.1",
-    "jscs": "^2.11.0",
-    "jscs-config-seegno": "^2.0.0",
-    "mocha": "^2.4.5",
-    "precommit-hook": "^3.0.0",
-    "should": "^8.3.1"
-  },
-  "engines": {
-    "node": ">= 8.16.2"
-  },
-  "options": {
-    "mocha": "--recursive --require should"
+    "changelog": "uphold-scripts changelog v$npm_package_version",
+    "lint": "uphold-scripts lint",
+    "release": "uphold-scripts release",
+    "test": "uphold-scripts test",
+    "validate": "npm ls",
+    "version": "uphold-scripts version"
   },
   "pre-commit": [
     "lint"
-  ]
+  ],
+  "devDependencies": {
+    "uphold-scripts": "^0.4.0"
+  },
+  "engines": {
+    "node": ">= 8.16.2"
+  }
 }

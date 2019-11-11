@@ -16,7 +16,7 @@ module.exports = range => {
   // Pick `first-byte-pos` and `last-byte-pos` from `range-set`.
   const first = parseInt(rangeSet[0], 10);
   const last = isFinite(rangeSet[1]) ? parseInt(rangeSet[1], 10) : rangeSet[1];
-  const unit = range.replace(range.match(/\=.+$/), '');
+  const unit = range.replace(range.match(/[=].+$/), '');
 
   // `first-byte-pos` must not be greater than `last-byte-pos`.
   if (first > last) {

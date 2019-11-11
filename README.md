@@ -8,14 +8,14 @@ _Inspired by [range-parser](https://github.com/jshttp/range-parser)_.
 
 ## Installation
 
-`npm install --save range-specifier-parser`
+`yarn add range-specifier-parser`
 
 ## Usage
 
 The parser receives a `byte-ranges-specifier` as its only argument.
 
 ```javascript
-import parser from 'range-specifier-parser';
+const parser = require('ranges-specifier-parser');
 
 parser('bytes=0-499');
 ```
@@ -35,12 +35,12 @@ The parser outputs an object with the following properties according to the [Byt
 ## Running tests
 
 ```sh
-npm test
+yarn test
 ```
 
 ## Release
 
-`npm version [<newversion> | major | minor | patch] -m "Release %s"`
+`yarn release [major | minor | patch | <custom version number>] # default: patch`
 
 ## License
 
