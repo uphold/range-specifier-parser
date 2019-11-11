@@ -3,7 +3,7 @@
  * Module dependencies.
  */
 
-import parser from '../src';
+const parser = require('../src');
 
 /**
  * Test `RangeSpecifierParser`.
